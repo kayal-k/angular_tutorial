@@ -1,0 +1,62 @@
+<p>roles works!</p>
+<!--variables&types-->
+<div class="row">
+    <div class="col-3">
+      <p>{{firstName}}</p>
+    </div>
+    <div class="col-3">
+      <p>{{version}}</p>
+    </div>
+    <div class="col-3">
+      <p>{{currentDate}}</p>
+    </div>
+     <div class="col-3">
+      <p>{{selectedState}}</p>
+    </div>
+
+
+
+</div> 
+
+
+<!--interpolation-->
+<!--one way data binding-->
+<div class="row">
+    <div class="col-3">
+       <input type="text" [value]="firstName" classs="form-control">
+    </div>
+<!--two way data binding-->
+    <div class="col-3">
+        <input type="text" [(ngModel)] ="firstName"/>
+    </div>
+
+    <div class="col-3">
+        <input [type]="inputType"/>
+    </div>
+    
+    <div class="col-3">
+        <select [(ngModel)]="selectedState">
+             <option value="MH">MH</option>
+            <option value="MP">MP</option>
+            <option value="GOA">GOA</option>
+        </select>
+    </div>
+</div>
+
+<!--eventbinding-func-->
+<div class="row">
+    <div class="col-3">
+       <button class="btn btn-success" (click)="showWelcomeAlert()">Show Alert</button>
+    </div>
+    <div class="col-3">
+       <button class="btn btn-success" (click)="showMessage('welcome to tutorial')">Show Alert</button>
+    </div>
+    <div class="col-3">
+       <button class="btn btn-success" (click)="showMessage('welcome to class')">Show Alert</button>
+    </div>
+</div>
+
+
+
+
+
