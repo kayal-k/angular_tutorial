@@ -25,20 +25,5 @@ export class RolesComponent {
      })
   }*/
 
-  firstName: string = 'angular tutorial';
-  angularversion = 'version19';
-
-  version: number = 18;
-  isActive: boolean = false;
-  currentDate: Date = new Date();
-  inputType: string = 'button';
-  selectedState: string = '';
-
-  showWelcomeAlert() {
-    alert('welcome to angular tutorial');
-  }
-
-  showMessage(message: string) {
-    alert(message);
-  }
+ 
 }

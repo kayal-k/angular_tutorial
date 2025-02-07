@@ -1,16 +1,36 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { RolesComponent } from './components/roles/roles.component';
-import { MasterComponent } from "./master/master.component";
-import { DesignationComponent } from "./components/designation/designation.component";
+import { Component, OnInit } from '@angular/core';
+import { MasterService } from './master.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, MasterComponent, DesignationComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CommonModule],
+  templateUrl: './app.component.html', // External HTML file
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'angular_tutorial';
+export class AppComponent implements OnInit {
+  title = 'My Angular App';
+  posts: any[] = [];
+  errorMessage: string = '';
+
+  constructor(private masterService: MasterService) {}
+
+  ngOnInit(): void {
+    this.fetchPosts();
+  }
+
+  fetchPosts(): void {
+    this.masterService.getPosts().subscribe(
+      (data) => {
+        this.posts = data;
+        this.errorMessage = ''; // Clear any previous errors
+      },
+      (error) => {
+        console.error('Error:', error);
+        this.errorMessage = 'Failed to load posts. Please try again later.';
+      }
+    );
+  }
 }
+
+
